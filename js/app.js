@@ -1,22 +1,47 @@
 "use strict";
 
+const times = [
+  "6am: ",
+  "7am: ",
+  "8am: ",
+  "9am: ",
+  "10am: ",
+  "11am: ",
+  "12pm: ",
+  "1pm: ",
+  "2pm: ",
+  "3pm: ",
+  "4pm: ",
+  "5pm: ",
+  "6pm: ",
+  "7pm: ",
+];
+
 const seattle = {
   name: "Seattle",
   minCust: 23,
   maxCust: 65,
   avgCookieSale: 6.3,
-  getRandomNo: function (minCust, maxCust) {
-    return Math.random() * (maxCust - minCust) + min;
+  randomCust: function () {
+    return (
+      Math.floor(Math.random() * (this.maxCust - this.minCust)) +
+      (this.minCust + 1)
+    );
   },
 };
+
+// seattle.randomCust();
 
 const tokyo = {
   name: "Tokyo",
   minCust: 3,
   maxCust: 24,
   avgCookieSale: 1.2,
-  getRandomNo: function (minCust, maxCust) {
-    return Math.random() * (maxCust - minCust) + min;
+  randomCust: function () {
+    return (
+      Math.floor(Math.random() * (this.maxCust - this.minCust)) +
+      (this.minCust + 1)
+    );
   },
 };
 
@@ -25,8 +50,11 @@ const dubai = {
   minCust: 11,
   maxCust: 38,
   avgCookieSale: 3.7,
-  getRandomNo: function (minCust, maxCust) {
-    return Math.random() * (maxCust - minCust) + min;
+  randomCust: function () {
+    return (
+      Math.floor(Math.random() * (this.maxCust - this.minCust)) +
+      (this.minCust + 1)
+    );
   },
 };
 
@@ -35,8 +63,11 @@ const Paris = {
   minCust: 20,
   maxCust: 38,
   avgCookieSale: 2.3,
-  getRandomNo: function (minCust, maxCust) {
-    return Math.random() * (maxCust - minCust) + min;
+  randomCust: function () {
+    return (
+      Math.floor(Math.random() * (this.maxCust - this.minCust)) +
+      (this.minCust + 1)
+    );
   },
 };
 
@@ -45,8 +76,11 @@ const lima = {
   minCust: 2,
   maxCust: 16,
   avgCookieSale: 4.6,
-  getRandomNo: function (minCust, maxCust) {
-    return Math.random() * (maxCust - minCust) + min;
+  randomCust: function () {
+    return (
+      Math.floor(Math.random() * (this.maxCust - this.minCust)) +
+      (this.minCust + 1)
+    );
   },
 };
 
@@ -69,3 +103,11 @@ article.appendChild(p);
 // This is creating an element for a list
 const ul = document.createElement("ul");
 article.appendChild(ul);
+
+// Loop through the numbers
+
+for (let i = 0; i < seattle.randomCust; i++) {
+  const li = document.createElement("li");
+  li.textContent = seattle.randomCust[i];
+  ul.appendChild(li);
+}

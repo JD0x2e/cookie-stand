@@ -1,10 +1,21 @@
+:root {
+  --background: #
+  --boxes: #
+  --headers: #
+  --content: #
+  --links: #
+}
+
+
+
 * {
-  background-color: rgb(251, 157, 146);
+  box-sizing: border-box;
 }
 
 h1 {
   text-align: center;
-  font-family: "Poppins", sans-serif;
+  /* background-color: rgb(250, 132, 119); */
+  font-size: 30px;
 }
 
 img {
@@ -22,4 +33,51 @@ img {
 h2 {
   text-align: center;
   font-style: italic;
+}
+
+header {
+  width: 100%;
+  background-color: rgb(250, 132, 119);
+  padding: 1em 0;
+
+}
+
+.headercontainer {
+  max-width: 1024px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logocontainer {
+  width: 200px;
+  margin-bottom: 0.5em;
+}
+
+#header-title {
+  margin-bottom: 1em;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li {
+  margin: 0 1em;
+}
+
+@media (min-width: 600px) {
+  .headercontainer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logocontainer {
+  margin-bottom: 0;
+}
+#header-title {
+  margin-bottom: 0;
+}
 }
