@@ -1,6 +1,7 @@
 "use strict";
 
-const times = [
+const cookieData = document.getElementById("cookie-data");
+const hours = [
   "6am: ",
   "7am: ",
   "8am: ",
@@ -17,97 +18,126 @@ const times = [
   "7pm: ",
 ];
 
+function randomNum(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 const seattle = {
   name: "Seattle",
   minCust: 23,
   maxCust: 65,
   avgCookieSale: 6.3,
-  randomCust: function () {
-    return (
-      Math.floor(Math.random() * (this.maxCust - this.minCust)) +
-      (this.minCust + 1)
-    );
+  custEachHour: [],
+  cookiesSoldEachHour: [],
+  totalDailyCookies: 0,
+  calcCustomersEachHour: function () {
+    for (let i = 0; i < hours.length; i++) {
+      this.custEachHour.push(randomNum(this.minCust, this.maxCust));
+    }
+  },
+
+  // method to populate our cookiesSoldEachHour
+  calcCookiesSoldEachHour: function () {
+    this.calcCustomersEachHour();
+    // run method to populate the custEachHour
+    for (let i = 0; i < hours.length; i++) {
+      const oneHourOfSales = Math.ceil(
+        this.custEachHour[i] * this.avgCookieSale
+      );
+      // push sales into cookiesSoldEachHour
+      this.cookiesSoldEachHour.push(oneHourOfSales);
+
+      // increase totalDailyCookies
+      this.totalDailyCookies += oneHourOfSales;
+    }
+  },
+
+  // method to render
+  render: function () {
+    this.calcCookiesSoldEachHour();
+    const article = document.createElement("article");
+    article.classList.add("seattlebox");
+    // article.classList.remove("seattlebox");
+    const h3 = document.createElement("h3");
+    h3.textContent = this.name;
+    article.appendChild(h3);
+
+    const ul = document.createElement("ul");
+
+    // write an li for each working hour
+    for (let i = 0; i < hours.length; i++) {
+      const li = document.createElement("li");
+      li.textContent = `${hours[i]}: ${this.cookiesSoldEachHour[i]} cookies`;
+      ul.appendChild(li);
+    }
+
+    // add the list to the page
+    article.appendChild(ul);
+
+    // add to the page
+    cookieData.appendChild(article);
   },
 };
-
-// seattle.randomCust();
 
 const tokyo = {
   name: "Tokyo",
   minCust: 3,
   maxCust: 24,
   avgCookieSale: 1.2,
-  randomCust: function () {
-    return (
-      Math.floor(Math.random() * (this.maxCust - this.minCust)) +
-      (this.minCust + 1)
-    );
+  custEachHour: [],
+  cookiesSoldEachHour: [],
+  totalDailyCookies: 0,
+  calcCustomersEachHour: function () {
+    for (let i = 0; i < hours.length; i++) {
+      this.custEachHour.push(randomNum(this.minCust, this.maxCust));
+    }
+  },
+
+  // method to populate our cookiesSoldEachHour
+  calcCookiesSoldEachHour: function () {
+    this.calcCustomersEachHour();
+    // run method to populate the custEachHour
+    for (let i = 0; i < hours.length; i++) {
+      const oneHourOfSales = Math.ceil(
+        this.custEachHour[i] * this.avgCookieSale
+      );
+      // push sales into cookiesSoldEachHour
+      this.cookiesSoldEachHour.push(oneHourOfSales);
+
+      // increase totalDailyCookies
+      this.totalDailyCookies += oneHourOfSales;
+    }
+  },
+
+  // method to render
+  render: function () {
+    this.calcCookiesSoldEachHour();
+    const article = document.createElement("article");
+    article.classList.add("tokyobox");
+    // article.classList.remove("seattlebox");
+    const h3 = document.createElement("h3");
+    h3.textContent = this.name;
+    article.appendChild(h3);
+
+    const ul = document.createElement("ul");
+
+    // write an li for each working hour
+    for (let i = 0; i < hours.length; i++) {
+      const li = document.createElement("li");
+      li.textContent = `${hours[i]}: ${this.cookiesSoldEachHour[i]} cookies`;
+      ul.appendChild(li);
+    }
+
+    // add the list to the page
+    article.appendChild(ul);
+
+    // add to the page
+    cookieData.appendChild(article);
   },
 };
 
-const dubai = {
-  name: "Dubai",
-  minCust: 11,
-  maxCust: 38,
-  avgCookieSale: 3.7,
-  randomCust: function () {
-    return (
-      Math.floor(Math.random() * (this.maxCust - this.minCust)) +
-      (this.minCust + 1)
-    );
-  },
-};
+const allShops = [seattle, tokyo];
 
-const Paris = {
-  name: "Paris",
-  minCust: 20,
-  maxCust: 38,
-  avgCookieSale: 2.3,
-  randomCust: function () {
-    return (
-      Math.floor(Math.random() * (this.maxCust - this.minCust)) +
-      (this.minCust + 1)
-    );
-  },
-};
-
-const lima = {
-  name: "Lima",
-  minCust: 2,
-  maxCust: 16,
-  avgCookieSale: 4.6,
-  randomCust: function () {
-    return (
-      Math.floor(Math.random() * (this.maxCust - this.minCust)) +
-      (this.minCust + 1)
-    );
-  },
-};
-
-// This is a container for all cookie stands
-const parentElement = document.getElementById("cookieStand");
-
-const article = document.createElement("article");
-parentElement.appendChild(article);
-
-// This is getting the name of the shop
-const h2 = document.createElement("h2");
-h2.textContent = seattle.name;
-article.appendChild(h2);
-
-// This is a little bio of the shop
-const p = document.createElement("p");
-p.textContent = `${seattle.name} is a great shop, it has an average of ${seattle.avgCookieSale} cookies sold per sale`;
-article.appendChild(p);
-
-// This is creating an element for a list
-const ul = document.createElement("ul");
-article.appendChild(ul);
-
-// Loop through the numbers
-
-for (let i = 0; i < seattle.randomCust; i++) {
-  const li = document.createElement("li");
-  li.textContent = seattle.randomCust[i];
-  ul.appendChild(li);
+for (let i = 0; i < allShops.length; i++) {
+  allShops[i].render();
 }
