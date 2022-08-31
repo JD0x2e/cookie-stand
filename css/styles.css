@@ -47,20 +47,6 @@ body {
   background-color: #dbaa99;
 }
 
-.headercontainer {
-  max-width: 1024px;
-  width: 90%;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.logocontainer {
-  width: 200px;
-  margin-bottom: 0.5em;
-}
-
 #header-title {
   margin-bottom: 1em;
 }
@@ -73,13 +59,18 @@ nav ul li {
   margin: 0 1em;
 }
 
-.copyright {
+footer {
   text-align: center;
+  margin: 1em;
 }
 
 main img {
   width: auto;
   display: flex;
+}
+
+.copyright {
+  text-align: center;
 }
 
 .maincontent {
@@ -124,9 +115,18 @@ main img {
   color: white;
 }
 
-footer {
-  text-align: center;
-  margin: 1em;
+.headercontainer {
+  max-width: 1024px;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logocontainer {
+  width: 200px;
+  margin-bottom: 0.5em;
 }
 
 .tophalf {
@@ -145,9 +145,6 @@ footer {
 
 .tophalfsales {
   height: 500px;
-  display: flex;
-  justify-content: center;
-  justify-content: space-around;
 }
 
 .tophalf p {
@@ -187,13 +184,6 @@ border: solid;
 padding: 20px;
 border: solid;
 }
-
-
-
-
-
-
-
 
 @media (min-width: 600px) {
   .headercontainer {
