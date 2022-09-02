@@ -1,5 +1,5 @@
 :root {
-  --background: #
+  --background: #a9b1db
   --boxes: #
   --headers: #
   --content: #
@@ -37,13 +37,13 @@ h2 {
 
 header {
   width: 100%;
-  background-color: #ADB7EB;
+  background-color: #a9b1db;
   padding: 1em 0;
   border: double 0.6em #5a6599;
 }
 
 body {
-  background-color: #e1b09f;
+  background-color: #bdd5ed;
 }
 
 #header-title {
@@ -218,7 +218,7 @@ hr {
   border: double 0.4em;
   width: 30%;
   padding: 0.3em;
-  background-color:#ADB7EB;
+  background-color: #a9b1db;
   margin-left: 1em;
 }
 
@@ -240,7 +240,7 @@ hr {
 
 fieldset {
   padding: 1.5em;
-  background-color: #ADB7EB;
+  background-color: #a9b1db;
   border: double 0.3em;
 }
 
