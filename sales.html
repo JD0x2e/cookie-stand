@@ -27,9 +27,9 @@
         <h1 id="header-title">Cookie Stand</h1>
         <nav>
           <ul>
-            <li><a href="#"></a>About</li>
-            <li><a href="#"></a>Sales</li>
-            <li><a href="#"></a>Contact</li>
+            <li><a href="/index.html">About</a></li>
+            <li><a href="/sales.html">Sales</a></li>
+            <li><a href="/contact.html">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -40,18 +40,35 @@
       </div>
       <hr />
       <section class="tophalfsales">
-        <div id="cookie-data"></div>
+        <table id="cookie-data"></table>
       </section>
       <hr />
       <section class="bottomhalf">
-        <footer>
-          <a href="#" class="fa fa-facebook"></a>
-          <a href="#" class="fa fa-twitter"></a>
-          <a href="#" class="fa fa-linkedin"></a>
-          <a href="#" class="fa fa-youtube"></a>
-        </footer>
-        <p class="copyright">&#169; Pat's Salmon Cookies</p>
+        <div class="form-container">
+          <form id="new-store-form">
+            <fieldset>
+              <legend><strong>Cookie Store Form</strong></legend>
+              <label for="name">Name of store:</label>
+              <input type="text" id="name" placeholder="Store name" />
+              <label for="minCust">Min number of customers:</label>
+              <input type="text" id="minCust" placeholder="Min customers" />
+              <label for="maxCust">Max number of customers:</label>
+              <input type="text" id="maxCust" placeholder="Max customers" />
+              <label for="average">Average cookies sold:</label>
+              <input type="text" id="average" placeholder="Average" />
+              <button type="submit" value="submit">Submit</button>
+            </fieldset>
+          </form>
+        </div>
       </section>
+      <hr />
+      <footer>
+        <a href="#" class="fa fa-facebook"></a>
+        <a href="#" class="fa fa-twitter"></a>
+        <a href="#" class="fa fa-linkedin"></a>
+        <a href="#" class="fa fa-youtube"></a>
+      </footer>
+      <p class="copyright">&#169; Pat's Salmon Cookies</p>
     </main>
     <script src="/js/app.js"></script>
   </body>
